@@ -98,6 +98,7 @@ namespace zadanie7
                     Console.WriteLine(studListSplit[0] + " " + studListSplit[1][0] + "." + studListSplit[2][0] + ".");
                 }
             }
+            Console.WriteLine();
         }
 
         static void YoungerOlder(string parametr)
@@ -120,6 +121,26 @@ namespace zadanie7
                     if (parametr == "a" && takeAge > 18) Console.WriteLine(studentList[i].fio + " возраст: " + takeAge);
                 }
             }
+            Console.WriteLine();
+        }
+
+        static void Search(string surname)
+        {
+            for (int i = 0; i < studentList.Count; i++)
+            {
+                string[] surnameNew = studentList[i].fio.Split(" ");
+
+                if (surnameNew[2] == surname)
+                {
+                    Console.WriteLine(
+                       studentList[i].id + " - "
+                       + studentList[i].fio + " - "
+                       + studentList[i].birthDate + " - "
+                       + studentList[i].group
+                   );
+                }
+            }
+            Console.WriteLine();
         }
 
         static void Main(string[] args)
@@ -132,6 +153,7 @@ namespace zadanie7
 
             ShowInitials("2208");
             YoungerOlder("a");
+            Search("Байрон");
         }
     }
 }
