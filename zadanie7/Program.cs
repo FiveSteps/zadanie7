@@ -130,7 +130,7 @@ namespace zadanie7
             {
                 string[] surnameNew = studentList[i].fio.Split(" ");
 
-                if (surnameNew[2] == surname)
+                if (surnameNew[0] == surname)
                 {
                     Console.WriteLine(
                        studentList[i].id + " - "
@@ -147,13 +147,13 @@ namespace zadanie7
         {
             Student first = new Student();
 
-            AddStudent("1567", "Лорд Геннадий Байрон", "11.08.2001", "ISIP");
-            AddStudent("1668", "Салтыков Дмитрий Гюгов", "23.11.2003", "ASAP");
-            AddStudent("2208", "Лермонтов Степан Халтурин", "07.02.1999", "ACAB");
+            AddStudent("1567", "Верховенский Петр Степанович", "11.08.2001", "ISIP");
+            AddStudent("1668", "Салтыков Дмитрий Александрович", "23.11.2003", "ASAP");
+            AddStudent("2208", "Лермонтов Алексей Геннадьевич", "07.02.1999", "ACAB");
 
             ShowInitials("2208");
             YoungerOlder("a");
-            Search("Байрон");
+            Search("Лермонтов");
         }
     }
 }
