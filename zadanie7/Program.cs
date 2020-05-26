@@ -100,15 +100,24 @@ namespace zadanie7
             }
         }
 
-        static void YoungerOlder(string id)
+        static void YoungerOlder(string parametr)
         {
+            string[] studentListSplit;
+            int ourYear;
+            int takeAge;
+
             for (int i = 0; i < studentList.Count; i++)
             {
-                if (studentList[i].id == id)
-                {
-                    string[] studListSplit = studentList[i].fio.Split(" ");
+                studentListSplit = studentList[i].birthDate.Split(".");
+                ourYear = 2020;
 
-                    Console.WriteLine(studListSplit[0] + " " + studListSplit[1][0] + "." + studListSplit[2][0] + ".");
+
+                if (int.TryParse(studentListSplit[2], out int res))
+                {
+                    takeAge = ourYear - res;
+
+                    if (parametr == "s" && takeAge < 18) Console.WriteLine(studentList[i].fio + " возраст: " +  takeAge);
+                    if (parametr == "a" && takeAge > 18) Console.WriteLine(studentList[i].fio + " возраст: " + takeAge);
                 }
             }
         }
@@ -117,11 +126,12 @@ namespace zadanie7
         {
             Student first = new Student();
 
-            AddStudent("1567", "Лорд Геннадий Байрон", "11.08.2000", "ISIP");
-            AddStudent("1668", "Салтыков Дмитрий Гюгов", "23.11.1999", "ASAP");
+            AddStudent("1567", "Лорд Геннадий Байрон", "11.08.2001", "ISIP");
+            AddStudent("1668", "Салтыков Дмитрий Гюгов", "23.11.2003", "ASAP");
             AddStudent("2208", "Лермонтов Степан Халтурин", "07.02.1999", "ACAB");
 
             ShowInitials("2208");
+            YoungerOlder("a");
         }
     }
 }
